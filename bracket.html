@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turnierbaum | Bier + X-Pongturnier</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="subpage-header">
+        <a href="index.html" class="back-btn">← Zurück zur Übersicht</a>
+        <h1 id="page-title" class="section-title yellow-glow">
+          🏆 Turnierbaum
+        </h1>
+        <p class="subtitle">Live-Ergebnisse & KO-Phase im Überblick.</p>
+      </div>
+
+      <section class="content-box card-yellow">
+        <div class="bracket-round">
+          <h3>Halbfinale</h3>
+          <div class="match-card">
+            <div class="match-team winner">
+              <span>🍺 Die Becherovka-Brüder</span><span>3</span>
+            </div>
+            <div class="match-team">
+              <span>🎯 Beer Pressure</span><span>1</span>
+            </div>
+          </div>
+          <div class="match-card">
+            <div class="match-team">
+              <span>🏓 Pong Stars</span><span>0</span>
+            </div>
+            <div class="match-team winner">
+              <span>🔥 Hopfen & Malz</span><span>2</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bracket-round" style="margin-bottom: 0">
+          <h3>🏆 Finale</h3>
+          <div class="match-card" style="border-color: var(--neon-yellow)">
+            <div class="match-team winner">
+              <span>🍺 Die Becherovka-Brüder</span><span>4</span>
+            </div>
+            <div class="match-team">
+              <span>🔥 Hopfen & Malz</span><span>2</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const year = params.get("year");
+      if (year) {
+        document.getElementById("page-title").textContent =
+          "🏆 Turnierbaum " + year;
+      }
+    </script>
+  </body>
+</html>

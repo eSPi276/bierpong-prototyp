@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Wichtig für die korrekte Darstellung auf Smartphones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bier + X-Pongturnier</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Top-Navigation (bleibt beim Scrollen oben kleben) -->
+    <header class="navbar">
+      <div class="nav-top">
+        <a href="#" class="brand">BIER + X-PONGTURNIER</a>
+
+        <!-- Dropdown für vergangene Turniere -->
+        <div class="archive-dropdown">
+          <select
+            id="year-select"
+            aria-label="Turnierjahr wählen"
+            onchange="switchYear(this.value)"
+          >
+            <option value="current">🏆 Aktuelles Turnier</option>
+            <option value="2025">⏮️ Turnier 2025 (Archiv)</option>
+            <option value="2024">⏮️ Turnier 2024 (Archiv)</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main class="container">
+      <!-- Hero-Bereich mit deinem Logo -->
+      <section class="hero">
+        <img src="logo.png" alt="Bier + X-Pongturnier Logo" class="hero-logo" />
+        <h1 id="tournament-title">Das jährliche Bierpongturnier</h1>
+        <p id="tournament-subtitle" class="subtitle">
+          Mach dein Team startklar, sichere dir Pizza & bring gute Laune mit!
+        </p>
+        <div id="archive-badge" class="archive-badge hidden">
+          Archiv-Ansicht: Es sind nur noch Turnierbaum & Fotoalbum verfügbar.
+        </div>
+      </section>
+
+      <!-- Schnellauswahl-Kacheln (Dashboard) -->
+      <section class="dashboard-grid">
+        <a href="team.html" class="card card-pink active-year-only">
+          <span class="card-icon">👥</span>
+          <h2>Team erstellen</h2>
+          <p>Melde dein 2er-Team mit Teamnamen an</p>
+        </a>
+
+        <a href="bracket.html" class="card card-yellow">
+          <span class="card-icon">🏆</span>
+          <h2>Turnierbaum</h2>
+          <p>Gruppenphase, KO-Runde & Ergebnisse</p>
+        </a>
+
+        <a href="pizza.html" class="card card-cyan active-year-only">
+          <span class="card-icon">🍕</span>
+          <h2>Pizzabestellung</h2>
+          <p>Sammelbestellung für die Stärkung</p>
+        </a>
+
+        <a href="rides.html" class="card card-pink active-year-only">
+          <span class="card-icon">🚗</span>
+          <h2>Mitfahrgelegenheit</h2>
+          <p>Freie Plätze anbieten oder finden</p>
+        </a>
+
+        <a href="sleep.html" class="card card-yellow active-year-only">
+          <span class="card-icon">🛏️</span>
+          <h2>Schlafplatz</h2>
+          <p>Couch, Gästebett oder Zeltplatz sichern</p>
+        </a>
+
+        <a href="photos.html" class="card card-cyan">
+          <span class="card-icon">📸</span>
+          <h2>Fotoalbum</h2>
+          <p>Die besten Schnappschüsse des Abends</p>
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <p>🍻 Bier + X-Pongturnier • Bitte verantwortungsvoll eskalieren</p>
+    </footer>
+
+    <!-- Kleines Skript für den Wechsel zwischen aktuellem Turnier und vergangenen Jahren -->
+    <script>
+      function switchYear(year) {
+        const activeOnlyElements =
+          document.querySelectorAll(".active-year-only");
+        const title = document.getElementById("tournament-title");
+        const subtitle = document.getElementById("tournament-subtitle");
+        const badge = document.getElementById("archive-badge");
+
+        if (year === "current") {
+          // Alle 6 Optionen anzeigen
+          activeOnlyElements.forEach((el) => el.classList.remove("hidden"));
+          title.textContent = "Das große Jahres-Turnier";
+          subtitle.classList.remove("hidden");
+          badge.classList.add("hidden");
+        } else {
+          // Nur Turnierbaum & Fotoalbum anzeigen
+          activeOnlyElements.forEach((el) => el.classList.add("hidden"));
+          title.textContent = "Turnier-Rückblick " + year;
+          subtitle.classList.add("hidden");
+          badge.classList.remove("hidden");
+        }
+      }
+    </script>
+  </body>
+</html>

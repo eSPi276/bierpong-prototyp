@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fotoalbum | Bier + X-Pongturnier</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="subpage-header">
+        <a href="index.html" class="back-btn">← Zurück zur Übersicht</a>
+        <h1 id="page-title" class="section-title cyan-glow">📸 Fotoalbum</h1>
+        <p class="subtitle">Teile deine besten Schnappschüsse des Turniers.</p>
+      </div>
+
+      <section class="content-box card-cyan">
+        <button
+          id="upload-btn"
+          class="btn-neon btn-cyan"
+          style="margin-top: 0; margin-bottom: 0.75rem"
+          onclick="
+            alert(
+              'Prototyp-Hinweis: Foto-Upload-Dialog würde sich hier öffnen!',
+            )
+          "
+        >
+          📤 Neues Foto hochladen
+        </button>
+
+        <div class="photo-grid">
+          <div class="photo-placeholder">
+            <span>🏆</span>
+            Siegerfoto Finale
+          </div>
+          <div class="photo-placeholder">
+            <span>🍻</span>
+            Eröffnungsrunde
+          </div>
+          <div class="photo-placeholder">
+            <span>🍕</span>
+            Pizzapause
+          </div>
+          <div class="photo-placeholder">
+            <span>🎯</span>
+            Trickshot des Abends
+          </div>
+          <div class="photo-placeholder">
+            <span>🎉</span>
+            Gruppenfoto
+          </div>
+          <div class="photo-placeholder">
+            <span>🕺</span>
+            Afterparty
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const year = params.get("year");
+      if (year) {
+        document.getElementById("page-title").textContent =
+          "📸 Fotoalbum " + year;
+        document.getElementById("upload-btn").classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>

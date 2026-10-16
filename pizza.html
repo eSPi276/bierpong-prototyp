@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzabestellung | Bier + X-Pongturnier</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="subpage-header">
+        <a href="index.html" class="back-btn">← Zurück zur Übersicht</a>
+        <h1 class="section-title cyan-glow">🍕 Pizzabestellung</h1>
+        <p class="subtitle">Bestellschluss ist um 20:30 Uhr!</p>
+      </div>
+
+      <section class="content-box card-cyan" style="margin-bottom: 1.5rem">
+        <div class="form-group">
+          <label>Dein Name</label>
+          <input type="text" class="input-field" placeholder="z. B. Lukas" />
+        </div>
+        <div class="form-group">
+          <label>Wunsch-Pizza</label>
+          <select class="input-field">
+            <option>Margherita (8,50 €)</option>
+            <option>Salami (9,50 €)</option>
+            <option>Prosciutto e Funghi (10,00 €)</option>
+            <option>Diavolo – scharf (10,50 €)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Extrawünsche / Notiz</label>
+          <input
+            type="text"
+            class="input-field"
+            placeholder="z. B. extra Käse, geschnitten"
+          />
+        </div>
+        <button
+          class="btn-neon btn-cyan"
+          onclick="
+            alert('Prototyp-Hinweis: Pizza wurde zur Liste hinzugefügt!')
+          "
+        >
+          🍕 Auf die Bestellliste setzen
+        </button>
+      </section>
+
+      <section
+        class="content-box"
+        style="border: 1px solid rgba(255, 255, 255, 0.1)"
+      >
+        <h2 style="font-size: 1.05rem">Aktuelle Bestellliste</h2>
+        <div class="dummy-list">
+          <div class="list-item">
+            <div>
+              <strong>Pizza Diavolo</strong>
+              <span>Max • Ohne Oliven</span>
+            </div>
+            <span class="badge badge-cyan">Bezahlt ✓</span>
+          </div>
+          <div class="list-item">
+            <div>
+              <strong>Pizza Salami</strong>
+              <span>Sarah • Standard</span>
+            </div>
+            <span class="badge badge-yellow">Offen (9,50 €)</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

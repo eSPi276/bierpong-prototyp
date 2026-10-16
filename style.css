@@ -1,0 +1,491 @@
+/* === Farbvariablen passend zum Neon-Logo === */
+:root {
+  --bg-dark: #070709;
+  --bg-card: #121218;
+  --neon-pink: #ff1e9b;
+  --neon-yellow: #fff01f;
+  --neon-cyan: #00f0ff;
+  --text-main: #ffffff;
+  --text-muted: #b0b0c0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  line-height: 1.5;
+  padding-bottom: 3rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* === Sticky Navigation (Mobile First) === */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 7, 9, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 30, 155, 0.4);
+  box-shadow: 0 2px 15px rgba(255, 30, 155, 0.2);
+}
+
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.brand {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  text-shadow:
+    0 0 8px var(--neon-pink),
+    0 0 16px var(--neon-pink);
+}
+
+/* Dropdown für vergangene Turniere */
+.archive-dropdown select {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.35);
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Horizontale Schnell-Navigation (wischbar auf dem Smartphone) */
+.quick-nav {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 1rem 0.75rem;
+  max-width: 900px;
+  margin: 0 auto;
+  scrollbar-width: none; /* Versteckt Scrollbalken in Firefox */
+}
+
+.quick-nav::-webkit-scrollbar {
+  display: none; /* Versteckt Scrollbalken in Chrome/Safari */
+}
+
+.quick-nav a {
+  flex: 0 0 auto;
+  text-decoration: none;
+  color: var(--text-main);
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.quick-nav a:hover,
+.quick-nav a:active {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 10px rgba(255, 30, 155, 0.5);
+}
+
+/* === Hauptcontainer & Hero === */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 1.5rem 0.5rem 2rem;
+}
+
+.hero-logo {
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 18px rgba(255, 30, 155, 0.55));
+}
+
+.hero h1 {
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.archive-badge {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 240, 31, 0.1);
+  border: 1px solid var(--neon-yellow);
+  color: var(--neon-yellow);
+  font-size: 0.9rem;
+  box-shadow: 0 0 12px rgba(255, 240, 31, 0.25);
+}
+
+/* === Dashboard Kacheln (Mobile: 2 Spalten, Tablet/PC: 3 Spalten) === */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 650px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  padding: 1.1rem 0.9rem;
+  text-decoration: none;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:active,
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.card p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Neon-Ränder der Kacheln */
+.card-pink {
+  border: 1px solid var(--neon-pink);
+  box-shadow:
+    0 0 12px rgba(255, 30, 155, 0.2),
+    inset 0 0 8px rgba(255, 30, 155, 0.1);
+}
+.card-yellow {
+  border: 1px solid var(--neon-yellow);
+  box-shadow:
+    0 0 12px rgba(255, 240, 31, 0.18),
+    inset 0 0 8px rgba(255, 240, 31, 0.08);
+}
+.card-cyan {
+  border: 1px solid var(--neon-cyan);
+  box-shadow:
+    0 0 12px rgba(0, 240, 255, 0.2),
+    inset 0 0 8px rgba(0, 240, 255, 0.1);
+}
+
+/* === Einzelne Sektionen === */
+.content-section {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem 1.2rem;
+  margin-bottom: 1.5rem;
+  /* Sorgt dafür, dass die sticky Navbar beim Springen die Überschrift nicht verdeckt */
+  scroll-margin-top: 115px;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pink-glow {
+  text-shadow: 0 0 8px var(--neon-pink);
+}
+.yellow-glow {
+  text-shadow: 0 0 8px rgba(255, 240, 31, 0.7);
+}
+.cyan-glow {
+  text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.placeholder-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+/* === Styling für die Unterseiten === */
+.subpage-header {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.back-btn {
+  display: inline-block;
+  color: var(--text-main);
+  text-decoration: none;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover,
+.back-btn:active {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+.content-box {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 1.5rem 1.2rem;
+}
+
+/* === Klick-Dummy Komponenten (Formulare, Listen, Turnierbaum, Fotos) === */
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  background: var(--bg-dark);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.btn-neon {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-main);
+  margin-top: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-pink {
+  border: 1px solid var(--neon-pink);
+  box-shadow:
+    0 0 12px rgba(255, 30, 155, 0.3),
+    inset 0 0 8px rgba(255, 30, 155, 0.15);
+}
+
+.btn-yellow {
+  border: 1px solid var(--neon-yellow);
+  box-shadow:
+    0 0 12px rgba(255, 240, 31, 0.25),
+    inset 0 0 8px rgba(255, 240, 31, 0.1);
+}
+
+.btn-cyan {
+  border: 1px solid var(--neon-cyan);
+  box-shadow:
+    0 0 12px rgba(0, 240, 255, 0.3),
+    inset 0 0 8px rgba(0, 240, 255, 0.15);
+}
+
+/* Listen-Einträge (Teams, Pizza, Mitfahrer, Schlafen) */
+.dummy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.list-item {
+  background: var(--bg-dark);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.list-item strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.list-item span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.badge {
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-pink {
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-pink);
+}
+.badge-yellow {
+  border: 1px solid var(--neon-yellow);
+  color: var(--neon-yellow);
+}
+.badge-cyan {
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+/* Turnierbaum (Bracket) */
+.bracket-round {
+  margin-bottom: 1.5rem;
+}
+
+.bracket-round h3 {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+}
+
+.match-card {
+  background: var(--bg-dark);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.65rem;
+}
+
+.match-team {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+}
+
+.match-team:first-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.match-team.winner {
+  color: var(--neon-yellow);
+  font-weight: 700;
+}
+
+/* Foto-Grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 650px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.photo-placeholder {
+  aspect-ratio: 1 / 1;
+  background: var(--bg-dark);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.photo-placeholder span {
+  font-size: 2rem;
+  margin-bottom: 0.35rem;
+}
